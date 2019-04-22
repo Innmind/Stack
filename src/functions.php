@@ -3,33 +3,17 @@ declare(strict_types = 1);
 
 namespace Innmind\Stack;
 
-function stack(): callable {
-    return static function(callable $inner): callable {
-        return pipe($inner);
-    };
-}
+use Innmind\Immutable\Stream;
 
-function pipe(callable $inner): callable
-{
-    return static function(callable $outer = null) use ($inner) {
-        if (\is_null($outer)) {
-            return $inner();
-        }
+function pipe(callable $function, callable ...$functions): callable {
+    $functions = Stream::of('callable', $function, ...$functions)->reverse();
 
-        $inner = compose($outer, $inner);
-
-        return pipe($inner);
-    };
-}
-
-function compose(callable $outer, callable $inner): callable {
-    return static function() use ($outer, $inner) {
-        return $outer($inner());
-    };
-}
-
-function curry(callable $call, $first): callable {
-    return static function($second) use ($call, $first) {
-        return $call($first, $second);
+    return static function() use ($functions) {
+        return $functions->drop(1)->reduce(
+            $functions->first()(),
+            static function($inner, callable $outer) {
+                return $outer($inner);
+            }
+        );
     };
 }
