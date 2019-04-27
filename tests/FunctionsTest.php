@@ -33,6 +33,24 @@ class FunctionsTest extends TestCase
         $this->assertSame([3, [2, [1]]], $build());
     }
 
+    public function testBuildStackWithInnermostSpecifiedAtBuildTime()
+    {
+        $three = static function($value) {
+            return [3, $value];
+        };
+        $two = static function($value) {
+            return [2, $value];
+        };
+
+        $build = stack(
+            $three,
+            $two
+        );
+
+        $this->assertIsCallable($build);
+        $this->assertSame([3, [2, [1]]], $build([1]));
+    }
+
     public function testCurry()
     {
         $add = function($a, $b, $c) {

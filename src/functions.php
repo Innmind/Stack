@@ -8,9 +8,9 @@ use Innmind\Immutable\Sequence;
 function stack(callable $function, callable ...$functions): callable {
     $functions = Sequence::of($function, ...$functions)->reverse();
 
-    return static function() use ($functions) {
-        return $functions->drop(1)->reduce(
-            $functions->first()(),
+    return static function($inner = null) use ($functions) {
+        return $functions->reduce(
+            $inner,
             static function($inner, callable $outer) {
                 return $outer($inner);
             }
