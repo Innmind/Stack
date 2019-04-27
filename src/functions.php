@@ -3,10 +3,10 @@ declare(strict_types = 1);
 
 namespace Innmind\Stack;
 
-use Innmind\Immutable\Stream;
+use Innmind\Immutable\Sequence;
 
 function stack(callable $function, callable ...$functions): callable {
-    $functions = Stream::of('callable', $function, ...$functions)->reverse();
+    $functions = Sequence::of($function, ...$functions)->reverse();
 
     return static function() use ($functions) {
         return $functions->drop(1)->reduce(
