@@ -17,3 +17,9 @@ function stack(callable $function, callable ...$functions): callable {
         );
     };
 }
+
+function curry(callable $fn, ...$first): callable {
+    return static function(...$second) use ($fn, $first) {
+        return $fn(...$first, ...$second);
+    };
+}

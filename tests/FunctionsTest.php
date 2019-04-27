@@ -5,6 +5,7 @@ namespace Tests\Innmind\Stack;
 
 use function Innmind\Stack\{
     stack,
+    curry,
 };
 use PHPUnit\Framework\TestCase;
 
@@ -30,5 +31,17 @@ class FunctionsTest extends TestCase
 
         $this->assertIsCallable($build);
         $this->assertSame([3, [2, [1]]], $build());
+    }
+
+    public function testCurry()
+    {
+        $add = function($a, $b, $c) {
+            return $a + $b + $c;
+        };
+
+        $add4 = curry($add, 1, 3);
+
+        $this->assertIsCallable($add4);
+        $this->assertSame(5, $add4(1));
     }
 }
