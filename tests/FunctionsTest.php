@@ -5,7 +5,6 @@ namespace Tests\Innmind\Stack;
 
 use function Innmind\Stack\{
     stack,
-    pipe,
 };
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +22,7 @@ class FunctionsTest extends TestCase
             return [1];
         };
 
-        $build = pipe(
+        $build = stack(
             $three,
             $two,
             $one

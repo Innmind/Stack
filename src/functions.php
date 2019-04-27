@@ -5,7 +5,7 @@ namespace Innmind\Stack;
 
 use Innmind\Immutable\Stream;
 
-function pipe(callable $function, callable ...$functions): callable {
+function stack(callable $function, callable ...$functions): callable {
     $functions = Stream::of('callable', $function, ...$functions)->reverse();
 
     return static function() use ($functions) {
