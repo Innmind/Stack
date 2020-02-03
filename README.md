@@ -1,10 +1,8 @@
 # Stack
 
-| `develop` |
-|-----------|
-| [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Innmind/Stack/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/Innmind/Stack/?branch=develop) |
-| [![Code Coverage](https://scrutinizer-ci.com/g/Innmind/Stack/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/Innmind/Stack/?branch=develop) |
-| [![Build Status](https://scrutinizer-ci.com/g/Innmind/Stack/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/Innmind/Stack/build-status/develop) |
+[![codecov](https://codecov.io/gh/Innmind/Stack/branch/develop/graph/badge.svg)](https://codecov.io/gh/Innmind/Stack)
+[![Build Status](https://github.com/Innmind/Stack/workflows/CI/badge.svg)](https://github.com/Innmind/Stack/actions?query=workflow%3ACI)
+[![Type Coverage](https://shepherd.dev/github/Innmind/Stack/coverage.svg)](https://shepherd.dev/github/Innmind/Stack)
 
 Simple function to stack elements on top of each others. Useful to create object stacks.
 
