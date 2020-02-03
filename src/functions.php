@@ -12,7 +12,8 @@ namespace Innmind\Stack;
  * @return callable(T): T
  */
 function stack(callable $function, callable ...$functions): callable {
-    $functions = \array_reverse([$function, ...$functions]);
+    \array_unshift($functions, $function);
+    $functions = \array_reverse($functions);
 
     /**
      * @psalm-suppress MissingClosureParamType
