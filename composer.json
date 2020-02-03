@@ -15,8 +15,7 @@
         "issues": "http://github.com/Innmind/Stack/issues"
     },
     "require": {
-        "php": "~7.2",
-        "innmind/immutable": "^2.13"
+        "php": "~7.2"
     },
     "autoload": {
         "files": ["src/functions.php"]

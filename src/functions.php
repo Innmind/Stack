@@ -3,17 +3,16 @@ declare(strict_types = 1);
 
 namespace Innmind\Stack;
 
-use Innmind\Immutable\Sequence;
-
 function stack(callable $function, callable ...$functions): callable {
-    $functions = Sequence::of($function, ...$functions)->reverse();
+    $functions = \array_reverse([$function, ...$functions]);
 
     return static function($inner = null) use ($functions) {
-        return $functions->reduce(
-            $inner,
+        return \array_reduce(
+            $functions,
             static function($inner, callable $outer) {
                 return $outer($inner);
-            }
+            },
+            $inner
         );
     };
 }
