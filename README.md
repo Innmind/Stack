@@ -1,7 +1,7 @@
 # Stack
 
 [![codecov](https://codecov.io/gh/Innmind/Stack/branch/develop/graph/badge.svg)](https://codecov.io/gh/Innmind/Stack)
-[![Build Status](https://github.com/Innmind/Stack/workflows/CI/badge.svg)](https://github.com/Innmind/Stack/actions?query=workflow%3ACI)
+[![Build Status](https://github.com/Innmind/Stack/workflows/CI/badge.svg?branch=master)](https://github.com/Innmind/Stack/actions?query=workflow%3ACI)
 [![Type Coverage](https://shepherd.dev/github/Innmind/Stack/coverage.svg)](https://shepherd.dev/github/Innmind/Stack)
 
 Simple function to stack elements on top of each others. Useful to create object stacks.
