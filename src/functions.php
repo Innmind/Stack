@@ -18,6 +18,7 @@ function stack(callable $function, callable ...$functions): callable {
     /**
      * @psalm-suppress MissingClosureParamType
      * @psalm-suppress MissingClosureReturnType
+     * @psalm-suppress MixedInferredReturnType
      */
     return static function($inner = null) use ($functions) {
         /** @var T $inner */
@@ -25,6 +26,7 @@ function stack(callable $function, callable ...$functions): callable {
         /**
          * @psalm-suppress MissingClosureParamType
          * @psalm-suppress MissingClosureReturnType
+         * @psalm-suppress MixedReturnStatement
          */
         return \array_reduce(
             $functions,
